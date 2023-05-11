@@ -32,9 +32,13 @@ public class CameraScript : MonoBehaviour
 
     void LateUpdate()
     {
-        this.transform.position = _character.transform.position +  Quaternion.Euler(0, _angelX, 0) * _offset;
-        this.transform.eulerAngles = new Vector3(_angelY, _angelX, 0);
+        this.transform.position = _character.transform.position + Quaternion.Euler(0, _angelX, 0) * _offset;
 
+        if(_angelY <= 30.1 && _angelY >= -45.1)
+        {
+            this.transform.eulerAngles = new Vector3(_angelY, _angelX, 0);
+        }
+       
         if(!Input.GetMouseButton(0))
         {
             // Вращаем персонажа по камере, если не зажата ЛКМ
